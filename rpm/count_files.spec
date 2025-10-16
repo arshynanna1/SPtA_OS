@@ -9,13 +9,11 @@ Source0:        count_files.sh
 BuildArch:      noarch
 
 %description
-This package installs a simple script that counts the number of files in the /etc directory.
+This package counts the number of files in the /etc directory.
 
 %prep
-# No setup section needed since we have only one source file
+%setup -q
 
-%build
-# Nothing to build
 
 %install
 mkdir -p %{buildroot}/%{_bindir}

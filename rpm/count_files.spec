@@ -1,11 +1,11 @@
 Name:           count_files
 Version:        1.0
 Release:        1%{?dist}
-Summary:        Script that counts files in the /etc directory
+Summary:        Count files in /etc directory
 Group:          Applications/System
 License:        GPL
 URL:            https://github.com/arshynanna1/SPtA_OS
-Source0:        count_files.sh
+Source0:        %{name}-%{version}.tar.gz
 BuildArch:      noarch
 
 %description

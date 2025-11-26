@@ -2,36 +2,27 @@
 ## DEB Package Creation
 
 ### Student: Arshyn Anna
-### Date: November 2024
 
-### Objective:
-Create a DEB package for the file counting script for Debian/Ubuntu systems.
+### What was done:
+Created a DEB package for Ubuntu/Debian that installs the file counting script.
 
-### DEB Package Structure:
-The package includes these files in debian/ directory:
+### Files created in debian/ folder:
+- control - package information and dependencies
+- rules - build instructions  
+- changelog - version history
+- compat - compatibility version
+- install - installation rules
+- source/format - package format
 
-- **debian/changelog** - Version history and changes
-- **debian/compat** - Debhelper compatibility (version 13)  
-- **debian/control** - Package metadata and dependencies
-- **debian/install** - File installation instructions
-- **debian/rules** - Build process configuration
-- **debian/source/format** - Source code format (3.0 native)
+### Package details:
+- Name: count-files
+- Version: 1.0-1
+- Installs script to: /usr/bin/count-files
 
-### Package Information:
-- **Name:** count-files
-- **Version:** 1.0-1
-- **Architecture:** all
-- **License:** GPL-3.0
-
-### Build Command:
-\`\`\`bash
+### Build command:
 dpkg-buildpackage -us -uc
-\`\`\`
 
-### Testing:
-- Package builds successfully
-- Installs script to /usr/bin/count-files
-- Script works after installation
+### Result:
+DEB package successfully created and ready for installation on Debian/Ubuntu systems.
 
-### Status:
-DEB package successfully created and tested.
+### Date: November 2024

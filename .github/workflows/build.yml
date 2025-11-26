@@ -22,8 +22,8 @@ jobs:
     - name: Upload DEB artifact
       uses: actions/upload-artifact@v4
       with:
-        name: count-files-deb-package
-        path: ../*.deb
+        name: count-files-deb
+        path: "*.deb"
 
   build-rpm:
     runs-on: ubuntu-latest
@@ -46,5 +46,5 @@ jobs:
     - name: Upload RPM artifact
       uses: actions/upload-artifact@v4
       with:
-        name: count-files-rpm-package
-        path: ~/rpmbuild/RPMS/*/*.rpm
+        name: count-files-rpm
+        path: "*.rpm"

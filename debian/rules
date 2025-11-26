@@ -1,0 +1,8 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	mkdir -p $(CURDIR)/debian/count-files/usr/bin
+	install -m 0755 $(CURDIR)/count_files.sh $(CURDIR)/debian/count-files/usr/bin/count-files

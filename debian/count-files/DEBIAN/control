@@ -1,0 +1,10 @@
+Package: count-files
+Version: 1.0-1
+Architecture: all
+Maintainer: Arshyn Anna <arshynanna@gmail.com>
+Installed-Size: 9
+Section: utils
+Priority: optional
+Description: Script to count files in /etc directory
+ This package provides a simple bash script that counts
+ the number of regular files in the /etc directory.

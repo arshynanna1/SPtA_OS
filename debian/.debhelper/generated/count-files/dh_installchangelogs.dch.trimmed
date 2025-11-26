@@ -1,0 +1,6 @@
+count-files (1.0-1) unstable; urgency=medium
+
+  * Initial release
+  * Added script to count files in /etc
+
+ -- Arshyn Anna <arshynanna@gmail.com>  Tue, 26 Nov 2024 17:30:00 +0000

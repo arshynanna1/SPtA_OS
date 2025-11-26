@@ -1,39 +1,21 @@
 pipeline {
     agent any
-    
     stages {
-        stage('Checkout Code') {
+        stage('Test Script') {
             steps {
                 checkout scm
-            }
-        }
-        
-        stage('Build and Install') {
-            steps {
                 sh '''
-                    echo "Building DEB package..."
-                    dpkg-buildpackage -us -uc
-                    
-                    echo "Installing package..."
-                    sudo dpkg -i ../count-files_1.0-1_all.deb
+                    chmod +x count_files.sh
+                    ./count_files.sh
+                    echo "Script works!"
                 '''
             }
         }
-        
-        stage('Run Script') {
+        stage('Complete') {
             steps {
-                sh '''
-                    echo "Executing count-files script:"
-                    count-files
-                    echo "Script completed successfully!"
-                '''
+                echo "Lab 8: Jenkins Pipeline - Done"
+                echo "Student: Arshyn Anna"
             }
-        }
-    }
-    
-    post {
-        always {
-            echo "Pipeline finished"
         }
     }
 }

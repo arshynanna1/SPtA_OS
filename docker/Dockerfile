@@ -1,9 +1,8 @@
 FROM jenkins/jenkins:lts
 
-# Перемикаємо на root для встановлення пакетів
 USER root
 
-# Оновлюємо та встановлюємо інструменти для збірки
+# Встановлюємо інструменти збірки
 RUN apt-get update && \
     apt-get install -y \
     devscripts \
@@ -12,22 +11,24 @@ RUN apt-get update && \
     rpm \
     git \
     curl \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Створюємо папку для проектів
-RUN mkdir -p /home/jenkins/workspace
+# Перевіряємо встановлення
+RUN which dpkg-deb && which rpmbuild
 
-# Повертаємося до користувача jenkins
+# Створюємо робочу папку
+RUN mkdir -p /home/jenkins/workspace
+RUN chown jenkins:jenkins /home/jenkins/workspace
+
 USER jenkins
 
-# Встановлюємо плагіни Jenkins
+# Встановлюємо плагіни (без :latest)
 RUN jenkins-plugin-cli --plugins \
-    pipeline:latest \
-    git:latest \
-    workflow-aggregator:latest
+    pipeline \
+    git \
+    workflow-aggregator
 
-# Вказуємо порт
 EXPOSE 8080
 
-# Команда запуску
 CMD ["jenkins.sh"]
